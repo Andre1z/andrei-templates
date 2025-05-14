@@ -1,5 +1,5 @@
 <?php
-require_once 'motorplantillas.php';
+require_once 'src/motorplantillas.php';
 require_once 'src/Blog.php';
 
 // Inicializa la lógica del blog y obtiene los posts.
