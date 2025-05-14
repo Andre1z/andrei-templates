@@ -1,27 +1,18 @@
 <?php
+require_once 'motorplantillas.php';
 require_once 'src/Blog.php';
 
-// Obtener los posts del blog
+// Inicializa la lógica del blog y obtiene los posts.
 $blog = new Blog();
 $posts = $blog->getPosts();
+
+// Crea una instancia del motor de plantillas
+$plantilla = new MotorPlantillas();
+
+// Asigna las variables que usará la plantilla.
+$plantilla->asignar('titulo', 'Bienvenido a Mi Blog');
+$plantilla->asignar('posts', $posts);
+
+// Renderiza la plantilla que muestra la lista de posts.
+$plantilla->renderizar('blog-list.php');
 ?>
-
-<?php include 'templates/header.php'; ?>
-
-<main>
-    <h1>Bienvenido a Mi Blog</h1>
-    <?php if (!empty($posts)) : ?>
-        <?php foreach($posts as $post): ?>
-            <article>
-                <h2><?php echo htmlspecialchars($post['title']); ?></h2>
-                <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
-                <small>Publicado el: <?php echo htmlspecialchars($post['created_at']); ?></small>
-            </article>
-            <hr>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>No hay entradas disponibles.</p>
-    <?php endif; ?>
-</main>
-
-<?php include 'templates/footer.php'; ?>
