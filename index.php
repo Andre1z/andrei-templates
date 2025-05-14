@@ -1,18 +1,23 @@
 <?php
-require_once 'src/motorplantillas.php';
+require_once __DIR__ . '/src/motorplantillas.php';
 require_once 'src/Blog.php';
 
-// Inicializa la lógica del blog y obtiene los posts.
 $blog = new Blog();
 $posts = $blog->getPosts();
 
-// Crea una instancia del motor de plantillas
+// Creamos el motor de plantillas
 $plantilla = new MotorPlantillas();
 
-// Asigna las variables que usará la plantilla.
-$plantilla->asignar('titulo', 'Bienvenido a Mi Blog');
+// Asignamos las variables que reemplazarán los contenidos en la plantilla
+$plantilla->asignar('pageTitle', 'Mi Blog Dinámico');     // Reemplaza el contenido del <title>
+$plantilla->asignar('pageHeader', 'Bienvenido a Mi Blog');  // Reemplaza el contenido del <h1>
+
+// Puedes incluso asignar un subtítulo o título de sección
+$plantilla->asignar('sectionTitle', 'Últimas Entradas');
+
+// También pasamos los posts, si la plantilla los necesita
 $plantilla->asignar('posts', $posts);
 
-// Renderiza la plantilla que muestra la lista de posts.
+// Renderizamos la plantilla, por ejemplo, la de lista de posts
 $plantilla->renderizar('blog-list.php');
 ?>

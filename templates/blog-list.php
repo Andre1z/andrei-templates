@@ -1,11 +1,14 @@
 <?php include 'header.php'; ?>
 
 <main>
-    <h1><?php echo htmlspecialchars($titulo); ?></h1>
+    <!-- Se utiliza la variable 'sectionTitle' para un segundo nivel de encabezado -->
+    <h2><?php echo isset($sectionTitle) ? htmlspecialchars($sectionTitle) : 'Entradas Recientes'; ?></h2>
+    
     <?php if (!empty($posts)) : ?>
         <?php foreach ($posts as $post): ?>
             <article>
-                <h2><?php echo htmlspecialchars($post['title']); ?></h2>
+                <!-- Cada post puede tener su propio título y esos valores ya vendrán de la base de datos -->
+                <h3><?php echo htmlspecialchars($post['title']); ?></h3>
                 <p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
                 <small>Publicado el: <?php echo htmlspecialchars($post['created_at']); ?></small>
             </article>
