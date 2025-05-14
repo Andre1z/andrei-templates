@@ -1,0 +1,76 @@
+/* Reset básico para eliminar márgenes y paddings por defecto */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para el cuerpo de la página */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Estilo para la cabecera */
+header {
+  background: #4CAF50;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+}
+
+/* Estilo para el contenedor principal */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilo para cada artículo (post) */
+article {
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+article h2 {
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+article p {
+  margin-bottom: 10px;
+}
+
+/* Estilo para el texto de fecha o metadatos */
+article small {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Estilos para el separador */
+hr {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
+}
+
+/* Estilo para el pie de página */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: #eee;
+  border-radius: 8px;
+}
